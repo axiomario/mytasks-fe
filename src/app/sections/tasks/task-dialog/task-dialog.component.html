@@ -1,0 +1,9 @@
+<div class="p-6 pt-4">
+  <div class="flex justify-between mb-2">
+    <div class="text-2xl font-light mt-2">Editar tarea</div>
+    <button mat-icon-button (click)="handleClose()">
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+  <task-form [task]="task" (taskSaved)="handleClose($event)"></task-form>
+</div>

@@ -1,0 +1,13 @@
+<div class="flex justify-center sm:pt-20">
+  <div class="sm:rounded-2xl bg-white sm:shadow p-10">
+    <div class="font-light text-4xl mb-6 text-center text-indigo-700">Mis Tareas</div>
+    <div class="font-light text-md mb-1">Introduce tu correo electrónico para iniciar sesión</div>
+    <form [formGroup]="form">
+      <mat-form-field appearance="outline" class="w-full">
+        <input matInput [formControlName]="'email'" (keydown.enter)="signIn()">
+        <mat-error *ngIf="form.get('email')">{{ emailError }}</mat-error>
+      </mat-form-field>
+    </form>
+    <button mat-flat-button color="primary" class="w-full mt-4" [disabled]="!form.valid" (click)="signIn()">Iniciar sesión</button>
+  </div>
+</div>

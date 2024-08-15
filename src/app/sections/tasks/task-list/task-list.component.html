@@ -1,0 +1,17 @@
+<div *ngIf="!list" class="flex justify-center" style="scale:0.5">
+  <mat-spinner></mat-spinner>
+</div>
+<ng-container *ngIf="list">
+  <div *ngIf="!list.length" class="sm:rounded-xl sm:bg-white sm:shadow p-4">
+    <div class="font-light text-4xl mb-6 text-center text-indigo-700">Sin tareas creadas</div>
+    <div class="font-light text-md text-center text-indigo-700 invisible hidden md:visible md:block">
+      Crea una tarea utilizando el formulario de la izquierda
+    </div>
+    <div class="font-light text-md text-center text-indigo-700 visible block md:invisible md:hidden">
+      Crea una tarea utilizando el formulario de arriba
+    </div>
+  </div>
+  <div *ngIf="list.length">
+    <task *ngFor="let task of list" [task]="task" (removed)="handleTaskRemoved(task)"></task>
+  </div>
+</ng-container>

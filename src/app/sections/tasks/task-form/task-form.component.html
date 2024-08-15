@@ -1,0 +1,16 @@
+<div class="flex flex-col items-end">
+  <form [formGroup]="form" class="w-full">
+    <mat-form-field class="w-full" appearance="outline">
+      <mat-label>Título</mat-label>
+      <input matInput [formControlName]="'title'">
+      <mat-error>Campo requerido</mat-error>
+    </mat-form-field>
+    <mat-form-field class="w-full mt-2" appearance="outline">
+      <mat-label>Descripción</mat-label>
+      <textarea matInput [formControlName]="'description'"></textarea>
+      <mat-error *ngIf="form.get('description')?.hasError('required')">Campo requerido</mat-error>
+    </mat-form-field>
+  </form>
+  <button *ngIf="!saving" mat-flat-button color="primary" class="mt-4 w-fit" [disabled]="!form.valid" (click)="addEdit()">{{ buttonLabel }}</button>
+  <mat-progress-bar *ngIf="saving" mode="indeterminate"></mat-progress-bar>
+</div>

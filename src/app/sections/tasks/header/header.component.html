@@ -1,0 +1,9 @@
+<div class="p-4 pl-6 bg-indigo-200 flex justify-between items-center shadow-md">
+  <div class="text-xl text-indigo-700">Mis Tareas</div>
+  <div class="flex items-center">
+    <div class="text-lg text-indigo-700 mr-4 invisible hidden sm:visible sm:block">{{ email }}</div>
+    <button mat-mini-fab color="primary" matTooltip="Cerrar sesión" (click)="signOut()">
+      <mat-icon>exit_to_app</mat-icon>
+    </button>
+  </div>
+</div>

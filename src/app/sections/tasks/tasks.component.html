@@ -1,0 +1,11 @@
+<header></header>
+<div class="flex justify-center">
+  <div class="max-w-7xl w-full grid grid-cols-1 md:grid-cols-3 sm:m-4 md:m-6 sm:gap-4">
+    <div class="col-span-1 sm:rounded-xl sm:bg-white sm:shadow p-4 h-fit">
+      <task-form (taskSaved)="list.refresh()"></task-form>
+    </div>
+    <div class="col-span-1 md:col-span-2">
+      <task-list #list></task-list>
+    </div>
+  </div>
+</div>

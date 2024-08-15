@@ -1,0 +1,21 @@
+<div class="flex items-center sm:rounded-xl bg-white shadow p-2 mb-1 sm:mb-4 border border-indigo-600"
+  (mouseover)="over = true" (mouseleave)="over = false"
+>
+  <mat-checkbox (change)="handleCheck($event.checked)" [checked]="task?.check"></mat-checkbox>
+  <div class="w-full ml-1">
+    <div class="font-normal text-lg text-indigo-700 w-full" [class.line-through]="task?.check">{{ task?.title }}</div>
+    <div class="font-light text-sm w-full" [class.line-through]="task?.check">{{ task?.description }}</div>
+  </div>
+  <div *ngIf="!over" class="mr-2">
+    <div class="font-light text-sm">{{ task?.created | date:'dd/MM/YY' }}</div>
+    <div class="font-light text-sm opacity-50">{{ task?.created | date:'HH:mm' }} hrs</div>
+  </div>
+  <ng-container *ngIf="over">
+    <button mat-icon-button color="primary" matTooltip="Editar tarea" (click)="edit()">
+      <mat-icon>edit</mat-icon>
+    </button>
+    <button mat-icon-button color="warn" matTooltip="Borrar tarea" (click)="remove()">
+      <mat-icon>close</mat-icon>
+    </button>
+  </ng-container>
+</div>
